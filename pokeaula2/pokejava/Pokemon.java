@@ -36,6 +36,9 @@ public class Pokemon {
         pokemons.add(new Pokemon("Pidgey", 90, "Voador", 5, ataques.subList(7, ataques.size())));
         pokemons.add(new Pokemon("Machop", 100, "Lutador", 5, ataques.subList(0, 3)));
         pokemons.add(new Pokemon("Rattata", 95, "Normal", 5, ataques.subList(3, 6)));
+        pokemons.add(new Pokemon("Sandshrew", 30, "Solo", 5, ataques.subList(1, 4)));
+        pokemons.add(new Pokemon("Sandshrew", 30, "Solo", 5, ataques.subList(1, 4)));
+        pokemons.add(new Pokemon("Sandshrew", 30, "Solo", 5, ataques.subList(1, 4)));
 
         return pokemons;
     }
