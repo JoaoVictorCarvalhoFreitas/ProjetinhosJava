@@ -1,8 +1,15 @@
 package pokejava;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import static pokejava.Ataque.criarAtaques;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
 
 public class Pokemon {
     String nome;
@@ -18,9 +25,8 @@ public class Pokemon {
         this.tipo = tipo;
         this.nivel = nivel;
         this.ataques = ataques;
-
-
     }
+
 
     public static List<Pokemon> criarPokemons() {
         List<Ataque> ataques = criarAtaques();
@@ -41,5 +47,35 @@ public class Pokemon {
         pokemons.add(new Pokemon("Sandshrew", 30, "Solo", 5, ataques.subList(1, 4)));
 
         return pokemons;
+    }
+}
+
+
+
+class LeitorTXT {
+
+
+
+    public static void main(String[] args) {
+    List<Ataque> ataques2 = criarAtaques();
+    List<Pokemon> pokemons2 = new ArrayList<>();
+        try {
+            FileReader arquivo = new FileReader("pokemons.txt");
+            BufferedReader lerLinha = new BufferedReader(arquivo);
+            String str;
+            while ((str = lerLinha.readLine()) != null) {
+                String nome = lerLinha.readLine();
+                int hp = Integer.parseInt(lerLinha.readLine());
+                String tipo = lerLinha.readLine();
+                int nivel = Integer.parseInt(lerLinha.readLine());
+
+                Pokemon pokemon = new Pokemon(nome, hp, tipo, nivel,ataques2.subList(1, 4));
+                System.out.println(pokemon.nome);
+                pokemons2.add(pokemon);
+            }
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

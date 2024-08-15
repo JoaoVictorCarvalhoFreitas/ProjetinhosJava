@@ -8,6 +8,7 @@ import static pokejava.Pokemon.criarPokemons;
 
 public class Party {
     ArrayList<Pokemon> party = new ArrayList<>();
+//    pokemon*6
 
     public void adPokemonParty(Pokemon pokemon) {
         if(party.size() < 6) {
@@ -16,6 +17,7 @@ public class Party {
             System.out.println("party esta cheia");
         }
     }
+
     public void removerPokemon(String nome) {
         for (int i = 0; i < party.size(); i++) {
             if (party.get(i).nome.equals(nome)) {
@@ -24,7 +26,7 @@ public class Party {
         }
     }
 
-    public boolean estaViva(Pokemon pokemon) {
+    public boolean estaVivo(Pokemon pokemon) {
         System.out.println(pokemon.nome);
         System.out.println(pokemon.hp);
         return pokemon.hp > 0;
@@ -54,6 +56,16 @@ public class Party {
 
     }
 
+    public void escolherPokemon(boolean randomico, int tamanhoParty) {
+        Random rand = new Random();
+        if (randomico) {
+            for (int i = 0; i < tamanhoParty; i++) {
+                int numRandom = rand.nextInt(10);
+                this.adPokemonParty(Pokemon.criarPokemons().get(numRandom));
+            }
+        }
+    }
+
     public void trocarPokemon(){
         Scanner input = new Scanner(System.in);
         for(int i = 0;i < this.party.size();i++){
@@ -72,15 +84,6 @@ public class Party {
         Collections.swap(this.party, 0, indice);
     }
 
-    public void escolherPokemon(boolean randomico, int tamanhoParty) {
-        Random rand = new Random();
-        if (randomico) {
-            for (int i = 0; i < tamanhoParty; i++) {
-                int numRandom = rand.nextInt(10);
-                this.adPokemonParty(Pokemon.criarPokemons().get(numRandom));
-            }
-        }
-    }
 
     public void escolherPokemon() {
         int tamanhoParty = 6;
@@ -112,4 +115,5 @@ public class Party {
             }
         }
     }
+
 }

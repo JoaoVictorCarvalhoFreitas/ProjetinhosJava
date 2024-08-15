@@ -219,7 +219,7 @@ public class Batalha {
     public boolean probAtaque(Ataque ataque){
         Random rand = new Random();
         double chancetentativa = (double) rand.nextInt(0, 100) /100;
-        return chancetentativa < ataque.chanceAcerto;
+        return chancetentativa < ataque.chanceAcerto ;
     }
 }
 
