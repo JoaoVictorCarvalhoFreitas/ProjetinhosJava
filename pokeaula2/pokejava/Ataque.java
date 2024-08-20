@@ -37,4 +37,9 @@ public class Ataque {
         ataques.add(new Ataque("Pancada", 55, "Lutador", 0.75, 0.7));
         return ataques;
     }
+
+
+
+
+
 }
