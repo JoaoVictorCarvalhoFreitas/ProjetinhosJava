@@ -1,11 +1,6 @@
 package pokejava;
 import java.util.*;
 
-
-
-
-import static pokejava.Pokemon.criarPokemons;
-
 public class Party {
     ArrayList<Pokemon> party = new ArrayList<>();
 //    pokemon*6
@@ -19,11 +14,7 @@ public class Party {
     }
 
     public void removerPokemon(String nome) {
-        for (int i = 0; i < party.size(); i++) {
-            if (party.get(i).nome.equals(nome)) {
-                party.remove(i);
-            }
-        }
+        this.party.removeIf(pokemon -> Objects.equals(pokemon.nome, nome));
     }
 
     public boolean estaVivo(Pokemon pokemon) {
@@ -34,8 +25,8 @@ public class Party {
 
     public boolean partyEstaViva() {
         if(!this.party.isEmpty()){
-            for (int i = 0; i < this.party.size(); i++) {
-                if ((this.party.get(i).hp > 1)) {
+            for (Pokemon pokemon : this.party) {
+                if ((pokemon.hp > 1)) {
                     return true;
                 }
             }
@@ -51,9 +42,7 @@ public class Party {
                 int numRandom = rand.nextInt();
                 this.adPokemonParty(Pokemon.criarPokemons().get(numRandom));
             }
-
         }
-
     }
 
     public void escolherPokemon(boolean randomico, int tamanhoParty) {
@@ -89,7 +78,7 @@ public class Party {
         int tamanhoParty = 6;
         Scanner input = new Scanner(System.in);
 
-        List<Pokemon> pokemons = criarPokemons();
+        List<Pokemon> pokemons = Pokemon.criarPokemons();
         for (int i = 0; i < pokemons.size(); i++) {
             System.out.println(i + 1 + " --- " + pokemons.get(i).nome  );
         }
