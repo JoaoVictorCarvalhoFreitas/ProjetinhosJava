@@ -220,6 +220,7 @@ public class Batalha {
         Random rand = new Random();
         double chancetentativa = (double) rand.nextInt(0, 100) /100;
         return chancetentativa < ataque.chanceAcerto ;
+        System.out.println("pokemon ativo: " + pokemonAtivo.nome + ", hp: " + pokemonAtivo.hp);
     }
 }
 
