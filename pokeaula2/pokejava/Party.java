@@ -2,9 +2,11 @@ package pokejava;
 import java.util.*;
 
 public class Party {
-    ArrayList<Pokemon> party = new ArrayList<>();
+    private ArrayList<Pokemon> party = new ArrayList<>();
 //    pokemon*6
 
+
+//    adiciona um pokemon na party
     public void adPokemonParty(Pokemon pokemon) {
         if(party.size() < 6) {
             party.add(pokemon);
@@ -13,20 +15,20 @@ public class Party {
         }
     }
 
-    public void removerPokemon(String nome) {
-        this.party.removeIf(pokemon -> Objects.equals(pokemon.nome, nome));
+    public void removerPokemon(int ID) {
+        this.party.remove(this.party.get(ID-1));
     }
 
     public boolean estaVivo(Pokemon pokemon) {
-        System.out.println(pokemon.nome);
-        System.out.println(pokemon.hp);
-        return pokemon.hp > 0;
+        System.out.println(pokemon.getNome());
+        System.out.println(pokemon.getHp());
+        return pokemon.getHp() > 0;
     }
 
     public boolean partyEstaViva() {
         if(!this.party.isEmpty()){
             for (Pokemon pokemon : this.party) {
-                if ((pokemon.hp > 1)) {
+                if ((pokemon.getHp() > 1)) {
                     return true;
                 }
             }
@@ -58,19 +60,26 @@ public class Party {
     public void trocarPokemon(){
         Scanner input = new Scanner(System.in);
         for(int i = 0;i < this.party.size();i++){
-            System.out.println(i+1 +" --- " + this.party.get(i).nome);
+            System.out.println(i+1 +" --- " + this.party.get(i).getNome());
         }
         int indice = input.nextInt()-1;
         input.nextLine();
         System.out.println("sua escolha: ");
 
-        System.out.println("voce trocou " + this.party.getFirst().nome + " por " + this.party.get(indice).nome);
+        System.out.println("voce trocou " + this.party.getFirst().getNome() + " por " + this.party.get(indice).getNome());
         ;
         Collections.swap(this.party, 0, indice);
     }
 
     public void trocarPokemon(int indice){
         Collections.swap(this.party, 0, indice);
+    }
+
+    public ArrayList<Pokemon> getParty(){
+        return this.party;
+    }
+    public void setParty(ArrayList<Pokemon> party){
+        this.party = party;
     }
 
 
@@ -80,7 +89,7 @@ public class Party {
 
         List<Pokemon> pokemons = Pokemon.criarPokemons();
         for (int i = 0; i < pokemons.size(); i++) {
-            System.out.println(i + 1 + " --- " + pokemons.get(i).nome  );
+            System.out.println(i + 1 + " --- " + pokemons.get(i).getNome()  );
         }
 
         for (int i = 0; i < tamanhoParty; i++) {
@@ -95,14 +104,13 @@ public class Party {
 
             this.adPokemonParty(pokemons.get(escolha));
 
-            System.out.println("pokemon " + pokemons.get(escolha).nome + " adicionado a party " );
+            System.out.println("pokemon " + pokemons.get(escolha).getNome() + " adicionado a party " );
             System.out.println();
             System.out.println(this.party.size() +" pokemons escolhidos de 6");
             System.out.println("Pokemons escolhidos: ");
             for (Pokemon pokemon2 : this.party) {
-                System.out.println(pokemon2.nome);
+                System.out.println(pokemon2.getNome());
             }
         }
     }
-
 }

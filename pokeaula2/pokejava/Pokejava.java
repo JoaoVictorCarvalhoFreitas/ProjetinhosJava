@@ -17,8 +17,10 @@ public class Pokejava {
         player2.party.escolherPokemon(true, 4);
 
         while (jogoAtivo){
-        Batalha player1Batalha = new Batalha(player1.party,player2.party);
+
+        Batalha player1Batalha = new Batalha(player1,player2.party);
         player1Batalha.interfaceBatalha();
+
         }
     }
 }

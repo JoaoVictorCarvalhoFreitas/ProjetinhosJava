@@ -5,11 +5,11 @@ import java.util.List;
 
 
 public class Pokemon {
-    String nome;
-    int hp;
-    String tipo;
-    int nivel;
-    List<Ataque> ataques;
+    private String nome;
+    private int hp;
+    private String tipo;
+    private int nivel;
+    private List<Ataque> ataques;
 
     public Pokemon(String nome, int hp, String tipo, int nivel,List<Ataque> ataques){
         this.nome = nome;
@@ -17,6 +17,37 @@ public class Pokemon {
         this.tipo = tipo;
         this.nivel = nivel;
         this.ataques = ataques;
+    }
+    public String getNome() {
+        return nome;
+    }
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+    public int getHp() {
+        return hp;
+    }
+    public void diminuirHP(int hp) {
+        this.hp -=hp;
+    }
+    public void aumentarHP(int hp) {
+        this.hp += hp;
+    }
+    public String getTipo() {
+        return tipo;
+
+    }
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+    public int getNivel() {
+        return nivel;
+    }
+    public void setNivel(int nivel) {
+        this.nivel = nivel;
+    }
+    public List<Ataque> getAtaques() {
+        return ataques;
     }
 
 
