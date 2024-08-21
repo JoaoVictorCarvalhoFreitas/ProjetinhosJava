@@ -27,18 +27,24 @@ public class PokemonLista {
                     int hp = Integer.parseInt(partes[1]);
                     String tipo = partes[2];
                     int nivel = Integer.parseInt(partes[3]);
+//                    elementos estao sendo repetidos WHY??????
+
+
+//                    percorre a lista(como um for each) separa os indices de ataques e transforma
                     List<Integer> indicesAtaques = Arrays.stream(partes[4].split(","))
                             .map(Integer::parseInt)
-                            .collect(Collectors.toList());
+                            .toList();
+                    System.out.println(indicesAtaques);
+
 
                     List<Ataque> listaAtaques = indicesAtaques.stream()
                             .map(ataques::get)
-                            .collect(Collectors.toList());
+                            .toList();
+
+
 
                     Pokemon pokemon = new Pokemon(nome, hp, tipo, nivel, listaAtaques);
                     pokemons.add(pokemon);
-                } else {
-                    System.out.println("Linha inválida no arquivo: " + linha);
                 }
             }
         } catch (IOException e) {

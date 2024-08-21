@@ -1,4 +1,4 @@
-Nome;dano;Tipo;chanceAcerto;critico
+Nome,dano,Tipo,chanceAcerto,critico
 MegaPunch;80;Normal;85;0.9
 RazorWind;80;Normal;75;0.9
 SwordsDance;0;Normal;0;0.9

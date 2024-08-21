@@ -54,8 +54,8 @@ Meowth;40;Normal;5;9,10
 Persian;65;Normal;5;9,10
 Psyduck;50;Água;5;5,6
 Golduck;80;Água;5;5,6
-Mankey;40;Lutador;5;21,22
-Primeape;65;Lutador;5;21,22
+Mankey;40;Lutador;5;21,22,0
+Primeape;65;Lutador;5;21,22,0
 Growlithe;55;Fogo;5;3,4
 Arcanine;90;Fogo;5;3,4
 Poliwag;40;Água;5;5,6
@@ -65,8 +65,8 @@ Abra;25;Psíquico;5;23,24
 Kadabra;40;Psíquico;5;23,24
 Alakazam;55;Psíquico;5;23,24
 Machop;70;Lutador;5;21,22
-Machoke;80;Lutador;5;21,22
-Machamp;90;Lutador;5;21,22
+Machoke;80;Lutador;5;21,22,0
+Machamp;90;Lutador;5;21,22,0
 Bellsprout;50;Grama;5;2,3
 Weepinbell;65;Grama;5;2,3
 Victreebel;80;Grama;5;2,3
@@ -105,7 +105,7 @@ Exeggutor;95;Grama;5;2,3
 Cubone;50;Terra;5;15,16
 Marowak;60;Terra;5;15,16
 Hitmonlee;50;Lutador;5;21,22
-Hitmonchan;50;Lutador;5;21,22
+Hitmonchan;50;Lutador;5;21,22,0
 Lickitung;90;Normal;5;19,20
 Koffing;40;Veneno;5;11,12
 Weezing;65;Veneno;5;11,12

@@ -42,7 +42,7 @@ public class Party {
         if (randomico) {
             for (int i = 0; i < tamanhoParty; i++) {
                 int numRandom = rand.nextInt();
-                this.adPokemonParty(Pokemon.criarPokemons().get(numRandom));
+                this.adPokemonParty(Pokemon.getPokemon().get(numRandom));
             }
         }
     }
@@ -52,7 +52,7 @@ public class Party {
         if (randomico) {
             for (int i = 0; i < tamanhoParty; i++) {
                 int numRandom = rand.nextInt(10);
-                this.adPokemonParty(Pokemon.criarPokemons().get(numRandom));
+                this.adPokemonParty(Pokemon.getPokemon().get(numRandom));
             }
         }
     }
@@ -82,12 +82,19 @@ public class Party {
         this.party = party;
     }
 
+    public void TrocaPokemon(int ind,int ind2){
+        Pokemon pokeTroca = Pokemon.getPokemon().get(ind);
+        Pokemon pokeTroca2 = Pokemon.getPokemon().get(ind2);
+        this.party.set(ind, pokeTroca2);
+        this.party.set(ind2, pokeTroca);
+    }
+
 
     public void escolherPokemon() {
         int tamanhoParty = 6;
         Scanner input = new Scanner(System.in);
 
-        List<Pokemon> pokemons = Pokemon.criarPokemons();
+        List<Pokemon> pokemons = Pokemon.getPokemon();
         for (int i = 0; i < pokemons.size(); i++) {
             System.out.println(i + 1 + " --- " + pokemons.get(i).getNome()  );
         }

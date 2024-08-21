@@ -21,7 +21,7 @@ public class Batalha {
         int contador = 0;
         while (party.partyEstaViva() && partyRival.partyEstaViva()) {
         Pokemon pokemonAtivo = this.party.getParty().getFirst();
-        Pokemon pokemonAtivoRival = this.party.getParty().getFirst();
+        Pokemon pokemonAtivoRival = this.partyRival.getParty().getFirst();
 
             System.out.println("pokemon ativo: " + pokemonAtivo.getNome() + ", hp: " + pokemonAtivo.getHp());
             System.out.println();
@@ -273,11 +273,7 @@ public class Batalha {
               for(int i = 0;i < party.getParty().size();i++){
                   if (party.getParty().get(i).getHp() > 0){
                       System.out.println(party.getParty().getFirst().getNome() + " faleceu. " + party.getParty().get(i).getNome() + " Apareceu");
-                      Pokemon novoPoke;
-                      novoPoke = party.getParty().get(i);
-                      Pokemon primeiroPoke = party.getParty().getFirst();
-                      party.getParty().set(0, novoPoke);
-                      party.getParty().set(i,primeiroPoke);
+                      party.TrocaPokemon(0,1);
                       break;
                   }
               }
